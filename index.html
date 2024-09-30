@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="./style.css" />
+        <title>Login | Todo App</title>
+    </head>
+    <body>
+        <div
+            class="container px-5 py-24 w-full mx-auto flex flex-wrap justify-center items-center"
+        >
+            <div
+                class="rounded-lg p-8 flex flex-col max-w-md w-full mt-10 md:mt-0"
+            >
+                <h2
+                    class="text-gray-900 text-center text-3xl font-semibold mb-10"
+                >
+                    Log In
+                </h2>
+                <div class="relative mb-4">
+                    <input
+                        type="text"
+                        id="full-name"
+                        name="full-name"
+                        class="w-full bg-[#F6F6F6] rounded-lg border border-[#E8E8E8] focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                        placeholder="Email"
+                    />
+                </div>
+                <div class="relative mb-4">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="w-full bg-[#F6F6F6] rounded-lg border border-[#E8E8E8] focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                        placeholder="Password"
+                    />
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="absolute right-3 top-2 text-gray-600 focus:outline-none"
+                    >
+                        Show
+                    </button>
+                </div>
+                <button
+                    class="text-white rounded-full bg-black border-0 py-2 px-8 mt-5 hover:bg-[#323232] text-lg"
+                    onclick="login()"
+                >
+                    Login
+                </button>
+            </div>
+        </div>
+
+        <script>
+            function login() {
+                window.location.href = "todos.html";
+            }
+            const togglePassword = document.getElementById("togglePassword");
+            const passwordInput = document.getElementById("password");
+
+            togglePassword.addEventListener("click", function () {
+                // Toggle the type attribute
+                const type =
+                    passwordInput.getAttribute("type") === "password"
+                        ? "text"
+                        : "password";
+                passwordInput.setAttribute("type", type);
+
+                // Toggle the button text
+                this.textContent = type === "password" ? "Show" : "Hide";
+            });
+        </script>
+    </body>
+</html>
