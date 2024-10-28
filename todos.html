@@ -82,71 +82,173 @@
                 </li>
             </div>
         </nav>
-        <main class="flex-1 p-6">
-            <button id="addTodoBtn" class="text-bold">+Add new task</button>
 
+        <!-- Main content -->
+        <main class="flex-1 p-6" style="margin-left: 20%">
+            <!-- Add New Task Button -->
+            <button
+                id="addTodoBtn"
+                class="font-bold text-blue-600 hover:text-blue-800 mb-4"
+            >
+                + Add new task
+            </button>
+
+            <!-- Incomplete Tasks Section -->
             <div class="mb-8">
-                <h2 class="text-xl font-semibold">Incomplete</h2>
-                <ul id="incompleteTasks" class="list-disc pl-5">
-                    <div class="p-4 lg:w-1/4 sm:w-1/2 w-full">
-                        
-                        <div
-                            class="flex flex-col  text-center items-start -mb-1 space-y-2.5"
-                        >
-                            <div>  </div>
-                            <div> Second Link </div>
-                            <div> Third Link </div>
-                            <div> Fourth Link </div>
-                            <a> Fifth Link </div>
+                <h2 class="text-lg font-semibold mb-4">Incomplete</h2>
+                <ul id="incompleteTasks" class="space-y-4">
+                    <li class="flex items-start">
+                        <input type="checkbox" class="mt-1 mr-3" />
+                        <div>
+                            <h3 class="font-medium">Submit my resume</h3>
+                            <p class="text-sm text-gray-500 flex items-center">
+                                <span class="material-icons text-red-400 mr-1"
+                                    >alarm</span
+                                >
+                                Today, 17:00
+                            </p>
                         </div>
-                    </div>
+                    </li>
+                    <li class="flex items-start">
+                        <input type="checkbox" class="mt-1 mr-3" />
+                        <div>
+                            <h3 class="font-medium">Complete the test</h3>
+                            <p class="text-sm text-gray-500 flex items-center">
+                                <span class="material-icons text-red-400 mr-1"
+                                    >alarm</span
+                                >
+                                Tomorrow, 10:00
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <input type="checkbox" class="mt-1 mr-3" />
+                        <div>
+                            <h3 class="font-medium">Meeting with Jack</h3>
+                            <p class="text-sm text-gray-500 flex items-center">
+                                <span class="material-icons text-red-400 mr-1"
+                                    >alarm</span
+                                >
+                                24 Feb, 15:00
+                            </p>
+                        </div>
+                    </li>
+                    <!-- Add more tasks as needed -->
                 </ul>
             </div>
-            <div>
-                <h2 class="text-xl font-semibold">Completed Tasks</h2>
-                <ul id="completedTasks" class="list-disc pl-5"></ul>
+
+            <!-- Completed Tasks Section -->
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold mb-4">Completed</h2>
+                <ul id="completedTasks" class="space-y-4">
+                    <li class="flex items-start">
+                        <input
+                            type="checkbox"
+                            class="mt-1 mr-3"
+                            checked
+                            disabled
+                        />
+                        <div>
+                            <h3 class="font-medium line-through text-gray-400">
+                                Respond to Jane email
+                            </h3>
+                            <p class="text-sm text-gray-400 flex items-center">
+                                <span class="material-icons text-gray-400 mr-1"
+                                    >alarm</span
+                                >
+                                Today, 17:00
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <input
+                            type="checkbox"
+                            class="mt-1 mr-3"
+                            checked
+                            disabled
+                        />
+                        <div>
+                            <h3 class="font-medium line-through text-gray-400">
+                                Recheck the agreement document
+                            </h3>
+                            <p class="text-sm text-gray-400 flex items-center">
+                                <span class="material-icons text-gray-400 mr-1"
+                                    >alarm</span
+                                >
+                                24 Feb, 11:00
+                            </p>
+                        </div>
+                    </li>
+                    <!-- Add more completed tasks as needed -->
+                </ul>
             </div>
         </main>
+
+        <!-- Add the Google Material Icons stylesheet -->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
 
         <!-- Modal for adding todos -->
         <div
             id="todoModal"
-            class="fixed inset-0 items-center justify-center bg-gray-800 bg-opacity-50 hidden"
+            class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden"
         >
-            <div class="bg-white rounded-lg p-6 w-96">
-                <h2 class="text-lg font-semibold mb-4">Add New Todo</h2>
-                <input
-                    type="text"
-                    id="todoSummary"
-                    class="w-full border rounded-lg py-2 px-3 mb-2"
-                    placeholder="Todo Summary"
-                />
-                <textarea
-                    id="todoDescription"
-                    class="w-full border rounded-lg py-2 px-3 mb-2"
-                    placeholder="Description"
-                ></textarea>
-                <input
-                    type="datetime-local"
-                    id="todoDueTime"
-                    class="w-full border rounded-lg py-2 px-3 mb-4"
-                />
-                <div class="flex justify-end">
+            <div class="bg-white rounded-xl p-8 w-96">
+                <h2 class="text-xl font-semibold mb-8">New Task</h2>
+
+                <div class="mb-4 flex items-center">
+                    <span class="material-icons text-gray-500 mr-2"
+                        >chat_bubble_outline</span
+                    >
+                    <input
+                        type="text"
+                        id="todoSummary"
+                        class="w-full border-b border-gray-300 focus:outline-none text-gray-500 py-2"
+                        placeholder="Summary"
+                    />
+                </div>
+
+                <div class="mb-4 flex items-center">
+                    <span class="material-icons text-gray-500 mr-2">notes</span>
+                    <textarea
+                        id="todoDescription"
+                        class="w-full border-b border-gray-300 focus:outline-none text-gray-500 py-2"
+                        placeholder="Description"
+                    ></textarea>
+                </div>
+
+                <div class="mb-8 flex items-center">
+                    <span class="material-icons text-gray-500 mr-2"
+                        >schedule</span
+                    >
+                    <input
+                        type="datetime-local"
+                        id="todoDueTime"
+                        class="w-full border-b border-gray-300 focus:outline-none text-gray-500 py-2"
+                    />
+                </div>
+
+                <div class="flex justify-center space-x-4">
                     <button
                         id="addTodoConfirm"
-                        class="bg-black text-white py-2 px-4 rounded"
+                        class="bg-black text-white py-2 px-6 rounded-full"
                     >
-                        Add
+                        Save
                     </button>
-                    <button
-                        id="closeModal"
-                        class="bg-gray-400 text-white py-2 px-4 rounded ml-2"
-                    >
+                    <button id="closeModal" class="text-gray-500 py-2 px-4">
                         Cancel
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- Add the Google Material Icons stylesheet -->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
 
         <!-- Notification -->
         <div
